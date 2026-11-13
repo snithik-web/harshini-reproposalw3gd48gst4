@@ -1,0 +1,511 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Oiiuiii, Harshini</title>
+
+<style>
+:root {
+  --ink: #71334f;
+  --pink: #e96aa5;
+  --pale: #fff0f6;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  min-height: 100%;
+  margin: 0;
+}
+
+body {
+  min-height: 100svh;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  font-family: "Trebuchet MS", system-ui, sans-serif;
+  color: var(--ink);
+  background: linear-gradient(
+    145deg,
+    #fff8fb,
+    #ffeaf3,
+    #fff5f8
+  );
+}
+
+.app {
+  width: min(100%, 620px);
+  min-height: min(690px, calc(100svh - 40px));
+  display: grid;
+  place-items: center;
+}
+
+.screen {
+  display: none;
+  width: 100%;
+  min-height: min(590px, calc(100svh - 80px));
+  padding: clamp(24px, 6vw, 52px) clamp(18px, 5vw, 44px);
+  border: 1px solid rgba(201,77,136,.12);
+  border-radius: 30px;
+  background: rgba(255,250,253,.94);
+  box-shadow: 0 18px 55px rgba(173,76,119,.12);
+  text-align: center;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  overflow: hidden;
+}
+
+.screen.active {
+  display: flex;
+  animation: appear .38s ease both;
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: translateY(9px) scale(.99);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.eyebrow {
+  margin: 0;
+  color: #b56a8b;
+  font-size: .78rem;
+  font-weight: 800;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(2rem, 8vw, 3.4rem);
+  line-height: 1.13;
+  letter-spacing: -.035em;
+  overflow-wrap: anywhere;
+}
+
+.sub {
+  max-width: 38ch;
+  margin: 0;
+  font-size: clamp(1rem, 3.6vw, 1.18rem);
+  line-height: 1.65;
+  color: #94627a;
+}
+
+.emoji {
+  font-size: clamp(2.3rem, 9vw, 3.6rem);
+  line-height: 1.2;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  margin-top: 6px;
+}
+
+button {
+  appearance: none;
+  border: 0;
+  border-radius: 999px;
+  min-height: 50px;
+  padding: 13px 25px;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  touch-action: manipulation;
+  transition: transform .16s ease,
+              box-shadow .16s ease,
+              background .16s ease;
+}
+
+button:focus-visible {
+  outline: 3px solid #9b4771;
+  outline-offset: 4px;
+}
+
+button:active {
+  transform: scale(.96);
+}
+
+.primary {
+  color: white;
+  background: linear-gradient(135deg, #ee83b2, #d95796);
+  box-shadow: 0 8px 18px rgba(217,87,150,.22);
+}
+
+.primary:hover {
+  transform: translateY(-2px);
+}
+
+.secondary {
+  color: #9b4771;
+  background: #ffe3ef;
+}
+
+.tiny-note {
+  min-height: 1.4em;
+  margin: 0;
+  color: #b56a8b;
+  font-size: .88rem;
+}
+
+.proposal-title {
+  max-width: 16ch;
+}
+
+.ending h1 {
+  font-size: clamp(2rem, 7vw, 3rem);
+}
+
+.ending .last-line {
+  color: #c94d88;
+  font-size: clamp(1.8rem, 7vw, 2.7rem);
+}
+
+#finalNo {
+  position: relative;
+}
+
+@media (max-width: 420px) {
+  body {
+    padding: 12px;
+  }
+
+  .app {
+    min-height: calc(100svh - 24px);
+  }
+
+  .screen {
+    min-height: min(620px, calc(100svh - 24px));
+    border-radius: 24px;
+    padding: 28px 18px;
+    gap: 17px;
+  }
+
+  .actions {
+    gap: 10px;
+  }
+
+  button {
+    min-height: 48px;
+    padding: 12px 20px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    transition-duration: .01ms !important;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<main class="app" aria-live="polite">
+
+  <!-- SCREEN 1 -->
+  <section class="screen active" id="s1">
+    <p class="eyebrow">a tiny surprise for you</p>
+
+    <h1>Oiiuiii</h1>
+
+    <p class="sub">Hiiiii Harshiniii ✨</p>
+
+    <div class="actions">
+      <button class="primary" data-next="s2">
+        Haa 💕
+      </button>
+    </div>
+  </section>
+
+
+  <!-- SCREEN 2 -->
+  <section class="screen" id="s2">
+
+    <div class="emoji">🤭</div>
+
+    <h1>I want to tell you smth...</h1>
+
+    <p class="sub">
+      Sooo, listen for a sec? 🥺
+    </p>
+
+    <div class="actions">
+      <button class="primary" data-next="s3">
+        Tell 💗
+      </button>
+    </div>
+  </section>
+
+
+  <!-- SCREEN 3: PROPOSAL -->
+  <section class="screen" id="s3">
+
+    <p class="eyebrow">okay, here goes...</p>
+
+    <div class="emoji">🥹❤️</div>
+
+    <h1 class="proposal-title">
+      Harshini, will you be my girlfriend?
+    </h1>
+
+    <div class="actions">
+
+      <button class="primary" id="proposalYes">
+        YESSS 💗
+      </button>
+
+      <button class="secondary" id="proposalNo">
+        NO 🙃
+      </button>
+
+    </div>
+
+    <p class="tiny-note" id="proposalHint">
+      Choose wisely hehe 😭
+    </p>
+  </section>
+
+
+  <!-- SCREEN 4 -->
+  <section class="screen" id="s4">
+
+    <div class="emoji">🥹💗✨</div>
+
+    <h1>AWWWW</h1>
+
+    <p class="sub">
+      Hehehehehe 😭😘
+    </p>
+
+    <div class="actions">
+      <button class="primary" data-next="s5">
+        NEXT ✨
+      </button>
+    </div>
+  </section>
+
+
+  <!-- SCREEN 5 -->
+  <section class="screen" id="s5">
+
+    <div class="emoji">🥺💞</div>
+
+    <h1>I LOVE YOU SO MUCHHH ❤️</h1>
+
+    <p class="sub">
+      Do you love me toooo? 🥹
+    </p>
+
+    <div class="actions" id="loveActions">
+
+      <button class="primary" data-next="s6">
+        I love u too 💗
+      </button>
+
+      <button class="secondary" id="finalNo">
+        I don't love u 😭
+      </button>
+
+    </div>
+
+    <p class="tiny-note" id="loveHint"></p>
+  </section>
+
+
+  <!-- SCREEN 6: ENDING -->
+  <section class="screen ending" id="s6">
+
+    <div class="emoji">😭💗🎀</div>
+
+    <h1>Muhehehehe</h1>
+
+    <h1>GOOD CHOICEEE 🎀</h1>
+
+    <p class="sub">
+      Heheh, I knew you'd say thattt 🥹
+    </p>
+
+    <h1 class="last-line">
+      I LOVE YOUUUU ❤️😘
+    </h1>
+
+  </section>
+
+</main>
+
+
+<script>
+
+// SCREEN NAVIGATION
+
+const screens = [
+  ...document.querySelectorAll(".screen")
+];
+
+function show(id) {
+
+  screens.forEach(screen => {
+
+    const active = screen.id === id;
+
+    screen.classList.toggle("active", active);
+
+    screen.setAttribute(
+      "aria-hidden",
+      String(!active)
+    );
+
+  });
+
+  const current = document.getElementById(id);
+
+  current.querySelector("button")?.focus({
+    preventScroll: true
+  });
+
+}
+
+
+// NORMAL NEXT BUTTONS
+
+document.querySelectorAll("[data-next]")
+.forEach(button => {
+
+  button.addEventListener("click", () => {
+
+    show(button.dataset.next);
+
+  });
+
+});
+
+
+// PROPOSAL YES BUTTON
+
+document.getElementById("proposalYes")
+.addEventListener("click", () => {
+
+  show("s4");
+
+});
+
+
+// PROPOSAL NO BUTTON TURNS INTO YES
+
+const proposalNo =
+  document.getElementById("proposalNo");
+
+const proposalHint =
+  document.getElementById("proposalHint");
+
+proposalNo.addEventListener("click", () => {
+
+  proposalNo.textContent = "YESSS 💗";
+
+  proposalNo.className = "primary";
+
+  proposalNo.setAttribute("aria-label", "Yes");
+
+  proposalHint.textContent =
+    "Hehe, that button changed its mind 😌";
+
+  proposalNo.addEventListener(
+    "click",
+    () => show("s4"),
+    { once: true }
+  );
+
+});
+
+
+// FINAL NO BUTTON RUNS AWAY
+
+const finalNo =
+  document.getElementById("finalNo");
+
+const loveHint =
+  document.getElementById("loveHint");
+
+let dodges = 0;
+
+function dodge() {
+
+  const actions =
+    document.getElementById("loveActions");
+
+  const maxX = Math.max(
+    0,
+    Math.min(100,
+      actions.clientWidth - finalNo.offsetWidth
+    )
+  );
+
+  const x = Math.round(
+    Math.random() * maxX - maxX / 2
+  );
+
+  const y = Math.round(
+    Math.random() * 36 - 18
+  );
+
+  finalNo.style.transform =
+    `translate(${x}px, ${y}px)`;
+
+  dodges++;
+
+  loveHint.textContent =
+    dodges === 1
+      ? "Hehe nopeee 😭"
+      : "Nice tryyy 😂";
+
+}
+
+
+// DESKTOP HOVER
+
+finalNo.addEventListener(
+  "pointerenter",
+  dodge
+);
+
+
+// CLICK
+
+finalNo.addEventListener("click", event => {
+
+  event.preventDefault();
+
+  dodge();
+
+});
+
+
+// TOUCH DEVICES
+
+finalNo.addEventListener(
+  "touchstart",
+  dodge,
+  { passive: true }
+);
+
+</script>
+
+</body>
+</html>
